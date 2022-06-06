@@ -1,7 +1,10 @@
 import SwiftUI
+import Realm
+import RealmSwift
 
 struct AddHabitPresent: View {
     @Binding var isPresentingSheet: Bool
+    @ObservedResults(HabitObject.self) var habits
     @State var startDate = Date.now
     @State var habitName = String.init()
     @State var numOfDay = 1
@@ -101,7 +104,16 @@ struct AddHabitPresent: View {
             }
         }
         
-        Button(action: {}, label: {
+        Button(action: {
+            let habit = HabitObject()
+            habit.habitName = habitName
+            habit.numOfDayToDo = numOfDay
+            habit.startDate = startDate
+            habit.reminderType = .Daily
+            habit.reminderDate = reminderTime
+            $habits.append(habit)
+            isPresentingSheet = false
+        }, label: {
             Text("OK")
                 .frame(width: 220, height: 50)
                 .background(

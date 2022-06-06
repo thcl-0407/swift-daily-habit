@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10E88C7284CCE1B005E6EDC /* ReminderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E88C6284CCE1B005E6EDC /* ReminderType.swift */; };
+		F10E88C9284CD82F005E6EDC /* HabitDetailStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E88C8284CD82F005E6EDC /* HabitDetailStatus.swift */; };
+		F10E88CC284CDEB3005E6EDC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F10E88CB284CDEB3005E6EDC /* Realm */; };
+		F10E88CE284CDEB3005E6EDC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F10E88CD284CDEB3005E6EDC /* RealmSwift */; };
+		F10E88D2284D05AA005E6EDC /* HabitObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E88D1284D05AA005E6EDC /* HabitObject.swift */; };
+		F10E88D4284D0A6D005E6EDC /* HabitDetailObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E88D3284D0A6D005E6EDC /* HabitDetailObject.swift */; };
 		F1747751284A38A0009F1EE9 /* DailyHabitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1747741284A389C009F1EE9 /* DailyHabitApp.swift */; };
 		F1747752284A38A0009F1EE9 /* DailyHabitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1747741284A389C009F1EE9 /* DailyHabitApp.swift */; };
 		F1747755284A38A0009F1EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1747743284A38A0009F1EE9 /* Assets.xcassets */; };
@@ -20,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F10E88C6284CCE1B005E6EDC /* ReminderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderType.swift; sourceTree = "<group>"; };
+		F10E88C8284CD82F005E6EDC /* HabitDetailStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailStatus.swift; sourceTree = "<group>"; };
+		F10E88D1284D05AA005E6EDC /* HabitObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitObject.swift; sourceTree = "<group>"; };
+		F10E88D3284D0A6D005E6EDC /* HabitDetailObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailObject.swift; sourceTree = "<group>"; };
 		F1747741284A389C009F1EE9 /* DailyHabitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitApp.swift; sourceTree = "<group>"; };
 		F1747743284A38A0009F1EE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1747748284A38A0009F1EE9 /* DailyHabit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyHabit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F10E88CE284CDEB3005E6EDC /* RealmSwift in Frameworks */,
+				F10E88CC284CDEB3005E6EDC /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +63,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F10E88C5284CCE00005E6EDC /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				F10E88C6284CCE1B005E6EDC /* ReminderType.swift */,
+				F10E88C8284CD82F005E6EDC /* HabitDetailStatus.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		F10E88CF284CE193005E6EDC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F10E88D0284CE1A5005E6EDC /* Objects */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F10E88D0284CE1A5005E6EDC /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				F10E88D1284D05AA005E6EDC /* HabitObject.swift */,
+				F10E88D3284D0A6D005E6EDC /* HabitDetailObject.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		F174773B284A389C009F1EE9 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +101,8 @@
 		F1747740284A389C009F1EE9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F10E88CF284CE193005E6EDC /* Data */,
+				F10E88C5284CCE00005E6EDC /* Enums */,
 				F182A856284C81110069A733 /* Helpers */,
 				F1747760284A39A6009F1EE9 /* Models */,
 				F174775F284A399B009F1EE9 /* Views */,
@@ -164,6 +204,10 @@
 			dependencies = (
 			);
 			name = "DailyHabit (iOS)";
+			packageProductDependencies = (
+				F10E88CB284CDEB3005E6EDC /* Realm */,
+				F10E88CD284CDEB3005E6EDC /* RealmSwift */,
+			);
 			productName = "DailyHabit (iOS)";
 			productReference = F1747748284A38A0009F1EE9 /* DailyHabit.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +256,9 @@
 				Base,
 			);
 			mainGroup = F174773B284A389C009F1EE9;
+			packageReferences = (
+				F10E88CA284CDEB3005E6EDC /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = F1747749284A38A0009F1EE9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -250,9 +297,13 @@
 				F1747769284A3A99009F1EE9 /* MainView.swift in Sources */,
 				F182A855284C5E420069A733 /* AddHabitPresent.swift in Sources */,
 				F182A85B284CA89E0069A733 /* HabitDetail.swift in Sources */,
+				F10E88D2284D05AA005E6EDC /* HabitObject.swift in Sources */,
+				F10E88C7284CCE1B005E6EDC /* ReminderType.swift in Sources */,
 				F1747766284A3A52009F1EE9 /* HabitSummary.swift in Sources */,
+				F10E88D4284D0A6D005E6EDC /* HabitDetailObject.swift in Sources */,
 				F182A858284C81280069A733 /* ExtendDateFormatter.swift in Sources */,
 				F174776B284A3BD0009F1EE9 /* HabitGridItem.swift in Sources */,
+				F10E88C9284CD82F005E6EDC /* HabitDetailStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +577,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F10E88CA284CDEB3005E6EDC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F10E88CB284CDEB3005E6EDC /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F10E88CA284CDEB3005E6EDC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		F10E88CD284CDEB3005E6EDC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F10E88CA284CDEB3005E6EDC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F174773C284A389C009F1EE9 /* Project object */;
 }

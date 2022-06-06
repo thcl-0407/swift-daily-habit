@@ -8,7 +8,7 @@ class ExtendDateFormatter{
     }
     
     func shortDate() -> DateFormatter {
-        _dateFormatter.dateStyle = .short
+        _dateFormatter.dateFormat = "dd/MM/yyyy"
         return _dateFormatter
     }
     

@@ -34,6 +34,16 @@ class HabitGridItem{
         return result
     }
     
+    func BuildGridItems(numOfColumn: Int) -> [GridItem]{
+        var result: [GridItem] = [GridItem].init()
+        
+        for _ in 0..<numOfColumn{
+            result.append(GridItem(.flexible()))
+        }
+        
+        return result
+    }
+    
     func BuildGridItems(numOfColumn: Int, flexMin: CGFloat, flexMax: CGFloat) -> [GridItem]{
         var result: [GridItem] = [GridItem].init()
         
