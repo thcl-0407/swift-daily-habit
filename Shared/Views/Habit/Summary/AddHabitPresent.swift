@@ -111,6 +111,14 @@ struct AddHabitPresent: View {
             habit.startDate = startDate
             habit.reminderType = .Daily
             habit.reminderDate = reminderTime
+            habit.habitDetails = RealmSwift.List<HabitDetailObject>()
+            for index in 0..<numOfDay {
+                let habitDetail = HabitDetailObject()
+                habitDetail.createdDate = Date.now
+                habitDetail.status = .New
+                habitDetail.index = index
+                habit.habitDetails.append(habitDetail)
+            }
             $habits.append(habit)
             isPresentingSheet = false
         }, label: {

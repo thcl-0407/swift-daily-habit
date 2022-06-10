@@ -14,8 +14,9 @@ extension ReminderType {
 }
 
 struct HabitDetail: View {
-    @ObservedResults(HabitObject.self) var habits
     @ObservedRealmObject var habit: HabitObject
+    @ObservedResults(HabitObject.self) var habits
+    
     let _gridItems: [GridItem] = HabitGridItem.init().BuildGridItems(numOfColumn: 5)
     @State var isOptionDialog = false
     
@@ -35,27 +36,50 @@ struct HabitDetail: View {
             
             ScrollView{
                 LazyVGrid(columns: _gridItems){
-                    ForEach(0..<habit.numOfDayToDo, id: \.self){ index in
+                    ForEach(self.habit.habitDetails, id: \.self){ habitDetail in
                         Button(action: {
                             self.isOptionDialog = true
                         }, label: {
                             VStack{
-                                Image(systemName: "square")
-                                    .resizable()
-                                    .frame(width: 38, height: 38)
-                                Text("\(index + 1)")
+                                if(habitDetail.status == .New){
+                                    Image(systemName: "square")
+                                        .resizable()
+                                        .frame(width: 38, height: 38)
+                                }
+                                if(habitDetail.status == .Success){
+                                    Image(systemName: "checkmark.square")
+                                        .resizable()
+                                        .frame(width: 38, height: 38)
+                                        .foregroundColor(.green)
+                                }
+                                if(habitDetail.status == .Fail){
+                                    Image(systemName: "x.square")
+                                        .resizable()
+                                        .frame(width: 38, height: 38)
+                                        .foregroundColor(.red)
+                                }
+                                Text("\(habitDetail.index + 1)")
                             }
                         })
                         .foregroundColor(.black)
                         .confirmationDialog("Change Status", isPresented: self.$isOptionDialog, actions: {
                             Button("Success"){
-                                
+                                try! Realm().write{
+                                    let update = habitDetail.thaw()
+                                    update?.setStatus(status: .Success)
+                                }
                             }
                             Button("Fail", role: .destructive){
-                                
+                                try! Realm().write{
+                                    let update = habitDetail.thaw()
+                                    update?.setStatus(status: .Fail)
+                                }
                             }
                             Button("Clear"){
-                                
+                                try! Realm().write{
+                                    let update = habitDetail.thaw()
+                                    update?.setStatus(status: .New)
+                                }
                             }
                         })
                     }
